@@ -1,8 +1,15 @@
 from django.shortcuts import render
+from rest_framework.response import Response
+from rest_framework.decorators import api_view
 
 # Create your views here.
-def homepage(request):
-    return render(request, 'index.html')  # Renders the homepage template
 
-def track_expense(request):
-    return render(request, 'track_expense.html')
+@api_view(['GET'])
+def home_data(request):
+    return Response({
+        "message": "Welcome to Tracky!",
+        "features": [
+            {"name": "Track Expenses", "url": "/track-expense"},
+            {"name": "Track Net Worth", "url": "/track-networth"}
+        ]
+    })

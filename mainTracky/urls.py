@@ -2,6 +2,5 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('', views.homepage, name='homepage'),  # Homepage URL
-    path('track-expense/', views.track_expense,name='track_expense'),
+    path('api/home/', views.home_data, name='home_data'),
 ]
